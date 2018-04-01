@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<title>Digit recognition</title>
+<link rel="stylesheet" href="{{ url_for('static',
+filename='style.css') }}">
+</head>
+<body>
+<h3>Prediction:</h3>
+<div>The digit is <strong>{{ prediction }}</strong>
+(probability: {{ probability }}%).</div>
+<div class='button'>
+<form action="/thanks" method="post" name="/thanks">
+<input type=submit value='Correct' name='feedback_button'>
+<input type=submit value='Incorrect' name='feedback_button'>
+<input type=hidden value='{{ prediction }}' name='prediction'>
+<input type=hidden value='{{ filename }}' name='filename'>
+</form>
+</div>
+<div class='button'>
+<form action="/">
+<input type=submit value='Submit another review'>
+</form>
+</div>
+</body>
+</html>
